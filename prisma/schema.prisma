@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MeasurementDevice {
+  WST_1
+  WST_2
+}
+
+model Measurement {
+  id              Int                 @default(autoincrement()) @id
+  deviceId        MeasurementDevice
+  temperature     Decimal
+  humidity        Decimal
+  pressure        Decimal
+  createdAt       DateTime            @default(now())
+}
