@@ -50,4 +50,31 @@ export class CreateMeasurementDto {
   @IsNotEmpty()
   @IsDefined()
   pressure: number;
+
+    /**
+   * CO2 concentration [ppm]
+   * @example 404.78
+   */
+    @IsNumber()
+    @IsNotEmpty()
+    @IsDefined()
+    co2: number;
+
+      /**
+   * Gas resistance for IAQ [Kohms]
+   * @example 1004.55
+   */
+  @IsNumber()
+  @IsNotEmpty()
+  @IsDefined()
+  gas_resistance: number;
+
+    /**
+   * NO2 concentration [ppm]
+   * @example 1004.55
+   */
+    @IsNumber()
+    @IsNotEmpty()
+    @IsDefined()
+no2: number
 }
