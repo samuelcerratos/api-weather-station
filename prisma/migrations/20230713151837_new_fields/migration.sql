@@ -1,0 +1,7 @@
+-- AlterTable
+ALTER TABLE "Measurement" ADD COLUMN     "co2" DECIMAL(65,30),
+ADD COLUMN     "iaq" DECIMAL(65,30),
+ADD COLUMN     "no2" DECIMAL(65,30),
+ALTER COLUMN "temperature" DROP NOT NULL,
+ALTER COLUMN "humidity" DROP NOT NULL,
+ALTER COLUMN "pressure" DROP NOT NULL;

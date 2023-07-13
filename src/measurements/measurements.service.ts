@@ -8,13 +8,19 @@ export class MeasurementsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createMeasurementDto: CreateMeasurementDto) {
-    const { deviceId, temperature, humidity, pressure } = createMeasurementDto;
+    const { deviceId, temperature, humidity, pressure, co2, no2, iaq } =
+      createMeasurementDto;
     const result = await this.prisma.measurement.create({
       data: {
         deviceId,
-        temperature: Math.round(temperature * 100) / 100,
-        humidity: Math.round(humidity * 100) / 100,
-        pressure: Math.round(pressure * 100) / 100,
+        temperature: temperature
+          ? Math.round(temperature * 100) / 100
+          : undefined,
+        humidity: humidity ? Math.round(humidity * 100) / 100 : undefined,
+        pressure: pressure ? Math.round(pressure * 100) / 100 : undefined,
+        co2: co2 ? Math.round(co2 * 100) / 100 : undefined,
+        no2: no2 ? Math.round(no2 * 100) / 100 : undefined,
+        iaq: iaq ? Math.round(iaq * 100) / 100 : undefined,
       },
     });
     return result;

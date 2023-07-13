@@ -4,6 +4,7 @@ import {
   IsEnum,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   Max,
   Min,
 } from 'class-validator';
@@ -26,8 +27,8 @@ export class CreateMeasurementDto {
   @Max(85)
   @IsNumber()
   @IsNotEmpty()
-  @IsDefined()
-  temperature: number;
+  @IsOptional()
+  temperature?: number;
 
   /**
    * Relative humidity percentage
@@ -37,8 +38,8 @@ export class CreateMeasurementDto {
   @Max(100)
   @IsNumber()
   @IsNotEmpty()
-  @IsDefined()
-  humidity: number;
+  @IsOptional()
+  humidity?: number;
 
   /**
    * Atmospheric pressure [hPa]
@@ -48,33 +49,33 @@ export class CreateMeasurementDto {
   @Max(1100)
   @IsNumber()
   @IsNotEmpty()
-  @IsDefined()
-  pressure: number;
+  @IsOptional()
+  pressure?: number;
 
-    /**
+  /**
    * CO2 concentration [ppm]
    * @example 404.78
    */
-    @IsNumber()
-    @IsNotEmpty()
-    @IsDefined()
-    co2: number;
+  @IsNumber()
+  @IsNotEmpty()
+  @IsOptional()
+  co2?: number;
 
-      /**
+  /**
    * Gas resistance for IAQ [Kohms]
    * @example 1004.55
    */
   @IsNumber()
   @IsNotEmpty()
-  @IsDefined()
-  gas_resistance: number;
+  @IsOptional()
+  iaq?: number;
 
-    /**
+  /**
    * NO2 concentration [ppm]
    * @example 1004.55
    */
-    @IsNumber()
-    @IsNotEmpty()
-    @IsDefined()
-no2: number
+  @IsNumber()
+  @IsNotEmpty()
+  @IsOptional()
+  no2?: number;
 }
